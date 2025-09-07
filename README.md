@@ -63,6 +63,7 @@ models:
 from pefe_ief import IEF
 from pefe_ief.models.abstract_model import AbstractModel
 from pefe_ief.dataset import PEFELMDBDataset
+from typing import Type
 
 # 0/6. Import your wrapped models
 from somewhere_in_your_project import SOREL20M_LGBM, SOREL20M_FFNN
@@ -132,6 +133,7 @@ ief.run(
     is_model_checkpoint_file=is_model_checkpoint_file,
     get_model_checkpoint_name=get_model_checkpoint_name,
     X_test=X_test, y_test=y_test,
+    config=IEF.EvaluationConfig(thresholds=[0.5, 0.6, 0.7, 0.8, 0.85, 0.9]),
 )
 ```
 

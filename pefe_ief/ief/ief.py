@@ -45,7 +45,7 @@ class IEF:
     def __init__(self, results_dir):
         # type: (IEF, str) -> None
 
-        assert os.path.isdir(results_dir), "Results directory does not exist: {results_dir}"
+        assert os.path.isdir(results_dir), f"Results directory does not exist: {results_dir}"
 
         self.results_dir = results_dir
         self.images_dir_path = Path(self.results_dir) / "images"
@@ -170,6 +170,7 @@ class IEF:
         The model must be loaded in prior and ready for
         inference.
         """
+        print("Evaluating model: " + model_checkpoint_name)
         y_probs = model.predict(X_test)
 
         figure_image_file_prefix = str(self.images_dir_path / model_checkpoint_name)
