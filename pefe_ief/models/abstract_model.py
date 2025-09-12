@@ -64,7 +64,7 @@ class AbstractModel:
         # type: (AbstractModel, str) -> float
 
         extract_features_start_time = time.perf_counter()
-        feature_vector = self.extract_features(pe_file_path)
+        feature_vector = self.extract_features_from_single_file(pe_file_path)
         extract_features_end_time = time.perf_counter()
         extract_features_time = extract_features_end_time - extract_features_start_time
 
