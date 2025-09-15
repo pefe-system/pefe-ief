@@ -82,7 +82,7 @@ ief = IEF("/your/results/dir")
 models_dirs_and_classes = {
     "/dir/containing/lgbm/model/files": SOREL20M_LGBM,
     "/dir/containing/ffnn/model/files": SOREL20M_FFNN,
-}
+} # type:  dict[str, Type[AbstractModel]]
 
 # 3/6. However, for each file recursively found in those
 #      directories, this function will be called to
@@ -103,7 +103,7 @@ models_dirs_and_classes = {
 #      file_path is indeed a model checkpoint file,
 #      and False otherwise.
 def is_model_checkpoint_file(model_class, file_path):
-    # type: (Type[AbstractModel], str) -> str
+    # type: (Type[AbstractModel], str) -> bool
     return file_path.endswith(".pt") or file_path.endswith(".model") 
 
 # 4/6. To identify models in the generated reports and
